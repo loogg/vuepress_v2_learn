@@ -1,5 +1,5 @@
 import { defineUserConfig } from 'vuepress'
-import { defaultTheme } from 'vuepress'
+import { hopeTheme } from "vuepress-theme-hope";
 import { searchPlugin } from '@vuepress/plugin-search'
 
 export default defineUserConfig({
@@ -8,7 +8,7 @@ export default defineUserConfig({
   base: '/vuepress_v2_learn/',
   head: [['link', { rel: 'icon', href: '/hero.png' }]],// 需要被注入到当前页面的 HTML <head> 中的标签
 
-  theme: defaultTheme({
+  theme: hopeTheme({
     logo: '/hero.png',
     // type: 'blog',
     // author: '马龙伟',
@@ -46,7 +46,7 @@ export default defineUserConfig({
         {
           text: '前端',
           collapsible: true,
-          children: ['.', 'myhtml', {
+          children: ['', 'myhtml', {
             text: 'js自定义的标题',
             link: 'myJavascript'
           }],
@@ -55,7 +55,7 @@ export default defineUserConfig({
       '/blog/backend/': [
         {
           text: '后端',
-          children: ['.', 'myjava'],
+          children: ['', 'myjava'],
         },
       ],
     },
