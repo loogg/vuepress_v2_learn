@@ -1,5 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from 'vuepress'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 export default defineUserConfig({
   title: '马龙伟', // 网站的标题
@@ -12,6 +13,9 @@ export default defineUserConfig({
     // type: 'blog',
     // author: '马龙伟',
     // authorAvatar: '/hero.png',
+    repo: 'https://github.com/loogg/vuepress_v2_learn',
+    docsBranch: 'master',
+    docsDir: 'docs',
     navbar: [
       {
         text: 'Home',
@@ -34,5 +38,34 @@ export default defineUserConfig({
         // icon: 'reco-menu'
       },
     ],
+
+    // sidebar: 'auto',
+
+    sidebar: {
+      '/blog/fontend/': [
+        {
+          text: '前端',
+          collapsible: true,
+          children: ['.', 'myhtml', {
+            text: 'js自定义的标题',
+            link: 'myJavascript'
+          }],
+        },
+      ],
+      '/blog/backend/': [
+        {
+          text: '后端',
+          children: ['.', 'myjava'],
+        },
+      ],
+    },
+
   }),
+
+  plugins: [
+    searchPlugin({
+      // 配置项
+      maxSuggestions: 10
+    }),
+  ],
 })
